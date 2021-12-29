@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+main {
+  height: 100%;
+  background: url("./../assets/bgBig.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+.wrapper {
+  background: #0000006d;
+  height: 100%;
+}
+.introContainer,
+.formContainer {
+  color: white;
+  padding: 0 20px;
+}
+.introContainer {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.formContainer {
+  text-align: center;
+}
+.introContainer h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.introContainer p {
+  font-size: 1.7rem;
+}
+
+.formContainer h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.formContainer h3 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+.formControl input,
+.formControl textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+input {
+  height: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    padding: 40px;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .introContainer,
+  .formContainer {
+    width: 50%;
+  }
+  .introContainer {
+    text-align: start;
+    margin-bottom: 0px;
+  }
+  input,
+  textarea {
+    width: 80%;
+  }
+}

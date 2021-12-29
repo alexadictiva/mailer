@@ -4,15 +4,15 @@
 if (!isset($_POST['email'])) {
 
 }else{
-  $mensaje="Mensaje del formulario ";
-  $mensaje.= "\nNombre: ". $_POST['nombre'];
-  $mensaje.= "\nEmail: ".$_POST['email'];
-  $mensaje.= "\nTelefono: ". $_POST['telefono'];
-  $mensaje.= "\nMensaje: \n".$_POST['mensaje'];
-  $destino= "alexandra220790@gmail.com";
-  $remitente = $_POST['email'];
-  $asunto = "Mensaje enviado por: ".$_POST['nombre'];
-  mail($destino,$asunto,$mensaje,"FROM: $remitente");
+  $message="Form Message ";
+  $message.= "\nName: ". $_POST['name'];
+  $message.= "\nEmail: ".$_POST['email'];
+  $message.= "\nPhone: ". $_POST['phone'];
+  $message.= "\nMessage: \n".$_POST['message'];
+  $destiny= "alexandra220790@gmail.com";
+  $sender = $_POST['email'];
+  $asunto = "Sending by: ".$_POST['name'];
+  mail($destiny,$asunto,$message,"FROM: $sender");
 
 }
 ?>
