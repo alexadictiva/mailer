@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Homepage</title>
+    <title>Smart-Truck</title>
   </head>
 
   <body>
@@ -19,21 +19,22 @@
       <div class="wrapper1">
         <section class="introContainer">
           <h1>
-            Vancouver's Best
-            <br />
-            Home Cleaners
+            QUERÉS VIVIR EN
+            <span class="logoUsa"
+              ><img src="./assets/usa.png" alt="Usa logo"
+            /></span>
           </h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-            distinctio eaque totam minus incidunt officia voluptatum unde,
-            suscipit perferendis eos pariatur illum corporis enim aspernatur
-            corrupti, neque cumque magnam ut nostrum quaerat. Aspernatur, eum a!
-            Inventore omnis tempore veniam molestias.
-          </p>
+          <h2>Invertí en <span class="truckTitle">CAMIONES</span></h2>
+          <h2>y Obtené la <span class="truckTitle2">VISA</span></h2>
+          <hr />
+          <p>Rentablidad del 25% anual</p>
         </section>
         <section class="formContainer">
-          <h2>Request Info & Booking</h2>
-          <h3>Fill this form and we will contact you as soon as we can.</h3>
+          <h2>Solicitar información</h2>
+          <h3>
+            Rellena este formulario y nos pondremos en contacto contigo a la
+            mayor brevedad.
+          </h3>
           <form action="sending.php" method="post">
             <article class="formGroup field">
               <input
@@ -43,7 +44,7 @@
                 name="name"
                 required
               />
-              <label for="name" class="formLabel">Name</label>
+              <label for="name" class="formLabel">Nombre</label>
             </article>
             <article class="formGroup field">
               <input
@@ -62,7 +63,7 @@
                 placeholder="Phone"
                 name="phone"
               />
-              <label for="phone" class="formLabel">Phone</label>
+              <label for="phone" class="formLabel">Teléfono</label>
             </article>
             <article class="formGroup field">
               <textarea
@@ -71,16 +72,16 @@
                 name="message"
                 required
               ></textarea>
-              <label for="message" class="formLabel">Message</label>
+              <label for="message" class="formLabel">Consulta</label>
             </article>
             <div class="btnContainer">
               <button class="button btn" type="submit">
-                Send
+                Enviar
                 <div class="button__horizontal"></div>
                 <div class="button__vertical"></div>
               </button>
               <button class="button btn" type="reset">
-                Reset
+                Borrar
                 <div class="button__horizontal"></div>
                 <div class="button__vertical"></div>
               </button>

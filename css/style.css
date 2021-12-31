@@ -29,9 +29,13 @@ body {
 }
 .main1 {
   background: url("./../assets/bgBig1.jpg");
+  background-position-x: 80%;
+  background-repeat: no-repeat;
 }
 .main2 {
   background: url("./../assets/bgBig2.jpg");
+  background-position-x: left;
+  background-repeat: no-repeat;
 }
 .wrapper1,
 .wrapper2 {
@@ -53,6 +57,9 @@ body {
   text-align: center;
   margin-bottom: 40px;
 }
+.logoUsa img {
+  width: 100px;
+}
 .formContainer {
   text-align: center;
 }
@@ -63,8 +70,24 @@ h1 {
   font-size: 3rem;
   margin-bottom: 20px;
 }
+.introContainer h2 {
+  font-size: 2.2rem;
+}
+hr {
+  border: 2px blue solid;
+  width: 75%;
+
+  margin: 20px auto;
+}
+.truckTitle {
+  font-size: 3rem;
+}
+.truckTitle2 {
+  font-size: 3rem;
+  color: red;
+}
 .introContainer p {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
 }
 
 .formContainer h2 {
@@ -88,7 +111,7 @@ h1 {
   border: 0;
   border-bottom: 2px solid #9b9b9b;
   outline: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #fff;
   padding: 7px 0;
   background: transparent;
@@ -98,23 +121,22 @@ h1 {
   color: transparent;
 }
 .formField:placeholder-shown ~ .formLabel {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   cursor: text;
-  top: 20px;
+  top: 15px;
 }
 .formLabel {
   position: absolute;
   top: 0;
   display: block;
   transition: 0.2s;
-  font-size: 1rem;
-  color: #9b9b9b;
+  font-size: 1.2rem;
+  color: white;
 }
 .formField:focus {
   padding-bottom: 6px;
   border-width: 3px;
-  border-image: linear-gradient(to right, #11998e, #38ef7d);
-  border-image-slice: 1;
+  border-color: blue;
 }
 .formField:focus ~ .formLabel {
   position: absolute;
@@ -122,7 +144,7 @@ h1 {
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #11998e;
+  color: blue;
   font-weight: 700;
 }
 
@@ -205,7 +227,7 @@ h1 {
 }
 
 .brand img {
-  width: 30%;
+  width: 50%;
 }
 .success img {
   width: 50%;
@@ -229,7 +251,34 @@ h1 {
     width: 50%;
   }
   .introContainer {
-    text-align: start;
     margin-bottom: 0px;
+  }
+  .btnContainer {
+    width: 50%;
+    margin: 30px auto 0;
+  }
+  .brand img {
+    width: 20%;
+  }
+  .success img {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .introContainer {
+    text-shadow: 2px 2px 8px black;
+    background-image: url(./../assets/bgUsa.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50vh;
+    padding: 40px;
+  }
+  .introContainer h1 {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 0;
   }
 }
