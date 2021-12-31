@@ -4,23 +4,45 @@
 }
 :root {
   font-size: 62.5%;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Lato", sans-serif;
+  --color-primary-500: #ffeb3b;
+  --color-primary-600: #fdd835;
+  --color-primary-900: #f57f17;
+  --color-secondary-500: #009688;
+  --color-secondary-900: #004d40;
+  --offset: 10px;
+  --border-size: 2px;
 }
 body {
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
 }
-main {
+.bodySent {
+  height: 100vh;
+}
+.main1,
+.main2 {
   height: 100%;
-  background: url("./../assets/bgBig.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 20px;
+  background-position: 0 0;
 }
-.wrapper {
+.main1 {
+  background: url("./../assets/bgBig1.jpg");
+}
+.main2 {
+  background: url("./../assets/bgBig2.jpg");
+}
+.wrapper1,
+.wrapper2 {
   background: #0000006d;
   height: 100%;
+  padding: 20px 0;
+}
+.wrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .introContainer,
 .formContainer {
@@ -34,9 +56,12 @@ main {
 .formContainer {
   text-align: center;
 }
-.introContainer h1 {
+form {
+  text-align: center;
+}
+h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .introContainer p {
   font-size: 1.7rem;
@@ -52,23 +77,152 @@ main {
   margin-bottom: 5px;
 }
 
-.formControl input,
-.formControl textarea {
-  width: 100%;
-  margin-bottom: 10px;
+.formGroup {
+  position: relative;
+  padding: 5px 0 0;
+  margin-top: 10px;
 }
-input {
-  height: 30px;
+.formField {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.formField::placeholder {
+  color: transparent;
+}
+.formField:placeholder-shown ~ .formLabel {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.formLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+.formField:focus {
+  padding-bottom: 6px;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #11998e, #38ef7d);
+  border-image-slice: 1;
+}
+.formField:focus ~ .formLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #11998e;
+  font-weight: 700;
 }
 
+.formField:required,
+.formField:invalid {
+  box-shadow: none;
+}
+
+.btnContainer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.button {
+  display: block;
+  position: relative;
+  padding: 5px;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: 0.8s ease;
+}
+.button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+.button__horizontal,
+.button__vertical {
+  position: absolute;
+  top: var(--horizontal-offset, 0);
+  right: var(--vertical-offset, 0);
+  bottom: var(--horizontal-offset, 0);
+  left: var(--vertical-offset, 0);
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+.button__horizontal::before,
+.button__vertical::before {
+  content: "";
+  position: absolute;
+  border: inherit;
+}
+.button__horizontal {
+  --vertical-offset: calc(var(--offset) * -1);
+  border-top: var(--border-size) solid currentcolor;
+  border-bottom: var(--border-size) solid currentcolor;
+}
+.button__horizontal::before {
+  top: calc(var(--vertical-offset) - var(--border-size));
+  bottom: calc(var(--vertical-offset) - var(--border-size));
+  left: calc(var(--vertical-offset) * -1);
+  right: calc(var(--vertical-offset) * -1);
+}
+.button:hover .button__horizontal {
+  transform: scaleX(0);
+}
+.button__vertical {
+  --horizontal-offset: calc(var(--offset) * -1);
+  border-left: var(--border-size) solid currentcolor;
+  border-right: var(--border-size) solid currentcolor;
+}
+.button__vertical::before {
+  top: calc(var(--horizontal-offset) * -1);
+  bottom: calc(var(--horizontal-offset) * -1);
+  left: calc(var(--horizontal-offset) - var(--border-size));
+  right: calc(var(--horizontal-offset) - var(--border-size));
+}
+.button:hover .button__vertical {
+  transform: scaleY(0);
+}
+
+.sent {
+  color: white;
+  text-align: center;
+}
+
+.brand img {
+  width: 30%;
+}
+.success img {
+  width: 50%;
+}
 @media screen and (min-width: 768px) {
+  body {
+    overflow: hidden;
+    height: 100vh;
+  }
   main {
     padding: 40px;
   }
-  .wrapper {
+  .wrapper1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 40px;
   }
   .introContainer,
   .formContainer {
@@ -77,9 +231,5 @@ input {
   .introContainer {
     text-align: start;
     margin-bottom: 0px;
-  }
-  input,
-  textarea {
-    width: 80%;
   }
 }
