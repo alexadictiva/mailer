@@ -5,13 +5,12 @@
 :root {
   font-size: 62.5%;
   font-family: "Lato", sans-serif;
-  --color-primary-500: #ffeb3b;
-  --color-primary-600: #fdd835;
-  --color-primary-900: #f57f17;
-  --color-secondary-500: #009688;
-  --color-secondary-900: #004d40;
-  --offset: 10px;
-  --border-size: 2px;
+  --overlay: #0000006d;
+  --grey: #6d6d6d;
+  --white: #ffffff;
+  --black: #000000;
+  --blue: #1e4b8a;
+  --red: red;
 }
 body {
   width: 100%;
@@ -39,7 +38,7 @@ body {
 }
 .wrapper1,
 .wrapper2 {
-  background: #0000006d;
+  background: var(--overlay);
   height: 100%;
   padding: 20px 0;
 }
@@ -50,7 +49,7 @@ body {
 }
 .introContainer,
 .formContainer {
-  color: white;
+  color: var(--white);
   padding: 0 20px;
 }
 .introContainer {
@@ -73,10 +72,9 @@ h1 {
 .introContainer h2 {
   font-size: 2.2rem;
 }
-hr {
-  border: 2px blue solid;
+.bar {
+  border: 2px var(--blue) solid;
   width: 75%;
-
   margin: 20px auto;
 }
 .truckTitle {
@@ -84,12 +82,17 @@ hr {
 }
 .truckTitle2 {
   font-size: 3rem;
-  color: red;
+  color: var(--red);
 }
 .introContainer p {
   font-size: 1.8rem;
 }
 
+.formContainer {
+  padding: 20px 0;
+  background-color: #dddddd6b;
+  text-shadow: 2px 2px 8px var(--black);
+}
 .formContainer h2 {
   font-size: 2.2rem;
   margin-bottom: 10px;
@@ -100,129 +103,76 @@ hr {
   margin-bottom: 5px;
 }
 
-.formGroup {
-  position: relative;
-  padding: 5px 0 0;
-  margin-top: 10px;
+.hiddenDesktop {
+  width: 10%;
+  border: 1.5px #ffffff83 solid;
+  margin: 10px auto;
+}
+
+.formControl {
+  margin-bottom: 10px;
 }
 .formField {
-  font-family: inherit;
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid #9b9b9b;
-  outline: 0;
-  font-size: 1.5rem;
-  color: #fff;
-  padding: 7px 0;
+  height: 40px;
   background: transparent;
-  transition: border-color 0.2s;
+  border: 0;
+  outline: none;
+  border-bottom: #ffffff6b solid 2px;
+  width: calc(100% - 50px);
+  color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px var(--black);
 }
 .formField::placeholder {
-  color: transparent;
+  color: var(--white);
+  font-size: 1.7rem;
+  text-shadow: 2px 2px 8px var(--black);
 }
-.formField:placeholder-shown ~ .formLabel {
-  font-size: 1.5rem;
-  cursor: text;
-  top: 15px;
-}
-.formLabel {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1.2rem;
+textarea {
+  height: 120px;
+  background: transparent;
+  border: 0;
+  outline: none;
+  border-bottom: #ffffff6b solid 2px;
+  width: calc(100% - 50px);
   color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px var(--black);
 }
-.formField:focus {
-  padding-bottom: 6px;
-  border-width: 3px;
-  border-color: blue;
+textarea::placeholder {
+  color: var(--white);
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 1.7rem;
+  text-shadow: 2px 2px 8px var(--black);
 }
-.formField:focus ~ .formLabel {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: blue;
-  font-weight: 700;
-}
-
-.formField:required,
-.formField:invalid {
-  box-shadow: none;
-}
-
 .btnContainer {
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  padding: 0 10px;
 }
-
-.button {
-  display: block;
-  position: relative;
-  padding: 5px;
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: white;
-  outline: none;
+.btn {
   cursor: pointer;
-  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
-  transition: 0.8s ease;
+  border: 0;
+  outline: none;
+  height: 35px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  color: var(--white);
 }
-.button:hover {
-  background: rgba(100, 0, 0, 0.03);
+.btnSubmit {
+  margin-bottom: 10px;
+  background-color: var(--blue);
 }
-.button__horizontal,
-.button__vertical {
-  position: absolute;
-  top: var(--horizontal-offset, 0);
-  right: var(--vertical-offset, 0);
-  bottom: var(--horizontal-offset, 0);
-  left: var(--vertical-offset, 0);
-  transition: transform 0.8s ease;
-  will-change: transform;
+.btnReset {
+  background-color: rgb(223, 51, 51);
 }
-.button__horizontal::before,
-.button__vertical::before {
-  content: "";
-  position: absolute;
-  border: inherit;
-}
-.button__horizontal {
-  --vertical-offset: calc(var(--offset) * -1);
-  border-top: var(--border-size) solid currentcolor;
-  border-bottom: var(--border-size) solid currentcolor;
-}
-.button__horizontal::before {
-  top: calc(var(--vertical-offset) - var(--border-size));
-  bottom: calc(var(--vertical-offset) - var(--border-size));
-  left: calc(var(--vertical-offset) * -1);
-  right: calc(var(--vertical-offset) * -1);
-}
-.button:hover .button__horizontal {
-  transform: scaleX(0);
-}
-.button__vertical {
-  --horizontal-offset: calc(var(--offset) * -1);
-  border-left: var(--border-size) solid currentcolor;
-  border-right: var(--border-size) solid currentcolor;
-}
-.button__vertical::before {
-  top: calc(var(--horizontal-offset) * -1);
-  bottom: calc(var(--horizontal-offset) * -1);
-  left: calc(var(--horizontal-offset) - var(--border-size));
-  right: calc(var(--horizontal-offset) - var(--border-size));
-}
-.button:hover .button__vertical {
-  transform: scaleY(0);
-}
-
+/*sent*/
 .sent {
-  color: white;
+  color: var(--white);
   text-align: center;
 }
 
@@ -233,6 +183,9 @@ hr {
   width: 50%;
 }
 @media screen and (min-width: 768px) {
+  .hiddenDesktop {
+    display: none;
+  }
   body {
     overflow: hidden;
     height: 100vh;
@@ -250,6 +203,10 @@ hr {
   .formContainer {
     width: 50%;
   }
+  .formContainer {
+    border-radius: 5px;
+    padding: 20px 0;
+  }
   .introContainer {
     margin-bottom: 0px;
   }
@@ -266,7 +223,7 @@ hr {
 }
 @media screen and (min-width: 1024px) {
   .introContainer {
-    text-shadow: 2px 2px 8px black;
+    text-shadow: 2px 2px 8px var(--black);
     background-image: url(./../assets/bgUsa.png);
     background-position: center;
     background-repeat: no-repeat;
