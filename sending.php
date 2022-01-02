@@ -6,7 +6,7 @@ if (!isset($_POST['email'])) {
   $message .= "\nEmail: " . $_POST['email'];
   $message .= "\nPhone: " . $_POST['phone'];
   $message .= "\nMessage: \n" . $_POST['message'];
-  $destiny = "alexandra220790@gmail.com";
+  $destiny = "test@testing.smart-truck.us";
   $sender = $_POST['email'];
   $asunto = "Sending by: " . $_POST['name'];
   mail($destiny, $asunto, $message, "FROM: $sender");
