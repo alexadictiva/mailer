@@ -1,20 +1,24 @@
 <?php
-if (!isset($_POST['email'])) {
-} else {
-  $message = "Form Message ";
+
+require_once('./controlles/Captcha.php');
+if (!isset($_POST['email'])) { 
   $message .= "\nName: " . $_POST['name'];
   $message .= "\nEmail: " . $_POST['email'];
   $message .= "\nPhone: " . $_POST['phone'];
   $message .= "\nMessage: \n" . $_POST['message'];
-  $destiny = "test@testing.smart-truck.us";
+  $destiny = "Jose@smart-truck.us";
   $sender = $_POST['email'];
   $asunto = "Sending by: " . $_POST['name'];
   mail($destiny, $asunto, $message, "FROM: $sender");
 }
+
+$captcha = new Captcha();
+
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -33,19 +37,39 @@ if (!isset($_POST['email'])) {
 <body class="bodySent">
   <main class="main2">
     <div class="wrapper2">
-      <section class="sent">
-        <div class="brand">
-          <img src="./assets/logo.png" alt="Logo">
+      <?php
+      
+      if($captcha->checkCaptcha($_POST['h-captcha-response'])){
+        echo"
+      <section class='sent'>
+        <div class='brand'>
+          <img src='./assets/logo.png' alt='Logo'>
         </div>
-        <div class="success">
-          <img src="./assets/fingerUp.png" alt="Finger Up Image">
+        <div class='success'>
+          <img src=''./assets/fingerUp.png' alt='Finger Up Image'>
         </div>
         <h1>Muchas Gracias por tu consulta!. </h1>
         <h2>En breve nos pondrenos en Contacto.</h2>
-      </section>
+      </section>";
+      }else{
+          echo"
+      <section class='sent'>
+        <div class='brand'>
+          <img src='./assets/logo.png' alt='Logo'>
+        </div>
+        <div class='success'>
+          <img src=''./assets/fingerDown.png' alt='Finger Down Image'>
+        </div>
+        <h1>Captcha incorrecto, volvé a intentarlo. </h1>
+        
+      </section>";
+      }
+      ?>
     </div>
   </main>
   <script src="./js/main.js"></script>
 </body>
 
 </html>
+
+
