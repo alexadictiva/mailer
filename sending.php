@@ -6,7 +6,7 @@ if (!isset($_POST['email'])) {
   $message .= "\nEmail: " . $_POST['email'];
   $message .= "\nPhone: " . $_POST['phone'];
   $message .= "\nMessage: \n" . $_POST['message'];
-  $destiny = "Jose@smart-truck.us";
+  $destiny = "jose@smart-truck.us";
   $sender = $_POST['email'];
   $asunto = "Sending by: " . $_POST['name'];
   mail($destiny, $asunto, $message, "FROM: $sender");
@@ -25,7 +25,7 @@ $captcha = new Captcha();
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
-  <meta http-equiv=refresh content="5; index.php">
+  <meta http-equiv=refresh content="8; index.php">
   <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +37,7 @@ $captcha = new Captcha();
 <body class="bodySent">
   <main class="main2">
     <div class="wrapper2">
+      
       <?php
       
       if($captcha->checkCaptcha($_POST['h-captcha-response'])){
@@ -46,7 +47,7 @@ $captcha = new Captcha();
           <img src='./assets/logo.png' alt='Logo'>
         </div>
         <div class='success'>
-          <img src=''./assets/fingerUp.png' alt='Finger Up Image'>
+          <img src='./assets/fingerUp.png' alt='Finger Up Image'>
         </div>
         <h1>Muchas Gracias por tu consulta!. </h1>
         <h2>En breve nos pondrenos en Contacto.</h2>
@@ -58,7 +59,7 @@ $captcha = new Captcha();
           <img src='./assets/logo.png' alt='Logo'>
         </div>
         <div class='success'>
-          <img src=''./assets/fingerDown.png' alt='Finger Down Image'>
+          <img src='./assets/fingerDown.png' alt='Finger Down Image'>
         </div>
         <h1>Captcha incorrecto, volvé a intentarlo. </h1>
         
