@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="./css/style.css" />
   <title>Smart-Truck</title>
 </head>
-
 <body>
   <main class="main1">
     <div class="wrapper1">
@@ -38,23 +37,17 @@
         <form action="sending.php" method="post">
           <article class="formControl">
             <input type="input" class="formField" placeholder="Nombre Completo" name="name" required />
-
           </article>
           <article class="formControl">
             <input type="input" class="formField" placeholder="E-mail" name="email" required />
-
           </article>
           <article class="formControl">
             <input type="input" class="formField" placeholder="Teléfono" name="phone" />
-
           </article>
           <article class="formControl">
             <textarea placeholder="Aquí Tu Consulta..." name="message" required></textarea>
-
           </article>
-          <article>
-            <div class="h-captcha" data-sitekey="0e75636b-56fc-426d-8c14-f54d73609bf4"></div>
-          </article>
+          
           <div class="btnContainer">
             <button class="btn btnSubmit" type="submit"> Enviar </button>
             <button class="btn btnReset" type="reset"> Borrar </button>
@@ -63,8 +56,6 @@
       </section>
     </div>
   </main>
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-  <script src="./js/main.js"></script>
+  
 </body>
-
 </html>
